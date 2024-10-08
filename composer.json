@@ -1,0 +1,22 @@
+{
+    "name": "ais/sso-php",
+    "description": "SSO for native PHP Aplication",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "AIS\\SSO\\PHP\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andry Ismail Sitepu",
+            "email": "adrismstp@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
