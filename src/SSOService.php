@@ -1,5 +1,5 @@
 <?php
-namespace ADR28\SSO\PHP\Services;
+namespace PDAIUMA\SSO\PHP\Services;
 
 use Exception;
 
