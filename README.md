@@ -5,4 +5,4 @@ A very simple PHP package for integrating with Keycloak SSO using the OpenID Con
 ## Installation
 
 ```bash
-composer require ais/sso-php
+composer require adr28/sso-php

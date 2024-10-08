@@ -1,5 +1,5 @@
 <?php
-namespace AIS\SSO\PHP\Services;
+namespace ADR28\SSO\PHP\Services;
 
 use Exception;
 

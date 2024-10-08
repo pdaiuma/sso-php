@@ -1,10 +1,10 @@
 {
-    "name": "ais/sso-php",
+    "name": "adr28/sso-php",
     "description": "SSO for native PHP Aplication",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "AIS\\SSO\\PHP\\": "src/"
+            "ADR28\\SSO\\PHP\\": "src/"
         }
     },
     "require": {
