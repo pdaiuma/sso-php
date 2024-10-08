@@ -1,10 +1,10 @@
 {
-    "name": "adr28/sso-php",
+    "name": "pdaiuma/sso-php",
     "description": "SSO for native PHP Aplication",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "ADR28\\SSO\\PHP\\": "src/"
+            "PDAIUMA\\SSO\\PHP\\": "src/"
         }
     },
     "require": {
@@ -13,8 +13,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Andry Ismail Sitepu",
-            "email": "adrismstp@gmail.com"
+            "name": "PDAI",
+            "email": "andry@uma.ac.id"
         }
     ],
     "minimum-stability": "stable",

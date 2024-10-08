@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 Andry Ismail Sitepu
+Copyright (c) 2024 PDAI Universitas Medan Area
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
