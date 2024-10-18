@@ -2,6 +2,7 @@
     "name": "pdaiuma/sso-php",
     "description": "SSO for native PHP Aplication",
     "type": "library",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "PDAIUMA\\SSO\\PHP\\": "src/"
@@ -18,5 +19,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": false
 }
