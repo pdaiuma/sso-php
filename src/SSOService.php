@@ -20,7 +20,7 @@ class SSOService
         $this->logFile = __DIR__ . '/../log/sso_log.txt';
 
         if (!isset($_SESSION['_sso_state'])) {
-            $this->state = bin2hex(random_bytes(16));
+            $this->state = bin2hex($this->getRandomBytes(16));
             $_SESSION['_sso_state'] = $this->state;
         } else {
             $this->state = $_SESSION['_sso_state'];
@@ -246,6 +246,22 @@ class SSOService
 
         curl_close($ch);
         return json_decode($response, true);
+    }
+
+    function getRandomBytes($length) {
+        if ($length <= 0) {
+            throw new \Exception("randombytes error: Length must be a positive integer.");
+        }
+
+        if (function_exists('openssl_random_pseudo_bytes')) {
+            return openssl_random_pseudo_bytes($length);
+        } else {
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= chr(mt_rand(0, 255));
+            }
+            return $randomString;
+        }
     }
 
 }
