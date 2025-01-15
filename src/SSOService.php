@@ -169,6 +169,7 @@ class SSOService
                     if ($userInfo) {
                         $_SESSION['name'] = $userInfo['name'];
                         $_SESSION['username'] = $userInfo['preferred_username'];
+                        $_SESSION['email'] = $userInfo['email'];
 
                         header("Location: index.php?page=index");
                         exit;
@@ -190,7 +191,7 @@ class SSOService
             }
         } else {
             $this->log('Missing state or code parameter');
-            header("Location: index.php?page=index");
+            // header("Location: index.php?page=index");
         }
     }
 
