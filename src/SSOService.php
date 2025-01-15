@@ -95,6 +95,7 @@ class SSOService
             if (isset($response['access_token'])) {
                 $_SESSION['access_token'] = $response['access_token'];
                 $_SESSION['refresh_token'] = $response['refresh_token'];
+                $_SESSION['id_token'] = $response['id_token'];
                 $this->log("Authentication successful for code: $code");
                 return true;
             }
@@ -109,16 +110,24 @@ class SSOService
 
     public function logout() {
         session_start();
+        $idToken = isset($_SESSION['id_token']) ? $_SESSION['id_token'] : null;
         session_destroy();
-
         $config = $this->getKeycloakConfig();
         $logoutUrl = $this->getBaseUrl() . '/realms/' . $config['realm'] . '/protocol/openid-connect/logout?' . http_build_query([
             'client_id' => $config['client_id'],
-            'redirect_uri' => $config['redirect_url'],
         ]);
-        
-        header("Location: $logoutUrl");
-        exit();
+
+        if ($idToken) {
+            $logoutUrl .= '&id_token_hint=' . urlencode($idToken);
+        }
+
+        if (!headers_sent()) {
+            header('Location: ' . $logoutUrl);
+            exit();
+        } else {
+            throw new \Exception('Headers already sent. Unable to perform logout redirect.');
+        }
+
     }
 
     public function introspectToken($token) {
