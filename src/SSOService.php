@@ -27,7 +27,7 @@ class SSOService
         }
     }
 
-    private function log($message, $type = 'INFO') {
+    public function log($message, $type = 'INFO') {
         $time = date('Y-m-d H:i:s');
         $logMessage = "[$time] [$type]: $message" . PHP_EOL;
         file_put_contents($this->logFile, $logMessage, FILE_APPEND);
@@ -171,7 +171,7 @@ class SSOService
                         $_SESSION['username'] = $userInfo['preferred_username'];
                         $_SESSION['email'] = $userInfo['email'];
 
-                        header("Location: index.php?page=index");
+                        header("Location: index.php?page=home");
                         exit;
                     } else {
                         $this->log("Failed to retrieve user profile information.");
@@ -191,6 +191,7 @@ class SSOService
             }
         } else {
             $this->log('Missing state or code parameter');
+            echo 'Missing state or code parameter';
             // header("Location: index.php?page=index");
         }
     }
